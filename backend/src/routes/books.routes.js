@@ -7,7 +7,7 @@ import paginate from "../middlewares/paginate.middelware.js"
 const router = Router()
 
 router.route("/").get((req, res) => {
-    res.send("Hello World")
+    res.json({ message: "Welcome to the Book Management API!" })
 })
 router.route("/add-book").post(uploadOnMulter.single("thumbnail"), addBook)
 router.route("/get-all-books").get(paginate(Books), getAllBooks)

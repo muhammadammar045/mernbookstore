@@ -12,8 +12,8 @@ app.use(express.static("public"));
 // CORS Configuration
 app.use(cors({
     origin: ['https://mernbookstorefrontend.vercel.app'],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
 }));
 
 // Body parsing middleware
@@ -21,9 +21,7 @@ app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ limit: "16kb", extended: true }));
 
 // Routes
-app.get("/", (req, res) => {
-    res.send("Welcome to the Book Management API!");
-});
+
 app.use("/api/v1/books", booksRoutes);
 
 // Error handling middleware
