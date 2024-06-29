@@ -9,9 +9,9 @@ const app = express()
 app.use(cookieParser())
 app.use(express.static("public"))
 app.use(cors({
-    origin: "*",
-    credentials: true,
+    origin: "https://mernbookstorefrontend.vercel.app",
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials: true,
 }))
 app.use(express.json({
     limit: "16kb"
