@@ -26,6 +26,11 @@ app.get('/api/v1/books/get-all-books', (req, res) => {
     const books = [{ title: 'Book 1' }, { title: 'Book 2' }];
     res.json({ books });
 });
+app.get('/', (req, res) => {
+    // Logic to fetch and return books data
+    const books = [{ title: 'Book 1' }, { title: 'Book 2' }];
+    res.json({ books });
+});
 // app.use("/api/v1/books", booksRoutes)
 
 
