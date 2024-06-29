@@ -9,10 +9,10 @@ const app = express()
 app.use(cookieParser())
 app.use(express.static("public"))
 app.use(cors({
-    origin: process.env.CORS_ORIGIN,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    origin: 'https://mernbookstorefrontend.vercel.app', // Allow your frontend domain
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
-}))
+}));
 app.use(express.json({
     limit: "16kb"
 }))
