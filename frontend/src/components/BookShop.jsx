@@ -15,7 +15,7 @@ function BookShop() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `/api/v1/books/get-all-books?page=${page}`
+        `${envVars.backend_uri}/books/get-all-books?page=${page}`
       );
       const { results, meta } = response.data.data;
       setBooks(results);
