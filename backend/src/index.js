@@ -10,7 +10,7 @@ dbConnection()
     .then(() => {
         app.listen(
             process.env.PORT || 5000,
-            () => { console.log(`Server is listening on Port : http://localhost:${process.env.PORT}`) }
+            () => { console.log(`Server is Listening on Port : http://localhost:${process.env.PORT}`) }
         )
     })
     .catch((error) => {
