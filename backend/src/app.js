@@ -1,37 +1,33 @@
-import cookieParser from "cookie-parser"
-import express from "express"
-import cors from "cors"
+import cookieParser from "cookie-parser";
+import express from "express";
+import cors from "cors";
 
-import booksRoutes from "./routes/books.routes.js"
+const app = express();
 
-const app = express()
-
-app.use(cookieParser())
-app.use(express.static("public"))
+// Middleware
+app.use(cookieParser());
+app.use(express.static("public"));
 app.use(cors({
-    origin: 'https://mernbookstorefrontend.vercel.app', // Allow your frontend domain
+    origin: 'https://mernbookstorefrontend.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }));
-app.use(express.json({
-    limit: "16kb"
-}))
-app.use(express.urlencoded({
-    limit: "16kb",
-    extended: true
-}))
+app.use(express.json({ limit: "16kb" }));
+app.use(express.urlencoded({ limit: "16kb", extended: true }));
 
+// Route
 app.get('/api/v1/books/get-all-books', (req, res) => {
-    // Logic to fetch and return books data
     const books = [{ title: 'Book 1' }, { title: 'Book 2' }];
     res.json({ books });
 });
-app.get('/', (req, res) => {
-    // Logic to fetch and return books data
-    const books = [{ title: 'Book 1' }, { title: 'Book 2' }];
-    res.json({ books });
+
+// Example: Using a route handler file
+// app.use("/api/v1/books", booksRoutes);
+
+// Error handling (example)
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Internal Server Error');
 });
-// app.use("/api/v1/books", booksRoutes)
 
-
-export default app
+export default app;
