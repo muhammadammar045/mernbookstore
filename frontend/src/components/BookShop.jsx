@@ -23,7 +23,7 @@ function BookShop() {
       // console.log(meta);
       console.log(results);
     } catch (error) {
-      console.log("Error Fetching The books:", error.message);
+      console.log("Error Fetching The Books:", error.message);
     } finally {
       setLoading(false);
     }
