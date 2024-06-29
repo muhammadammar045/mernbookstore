@@ -9,7 +9,7 @@ const app = express()
 app.use(cookieParser())
 app.use(express.static("public"))
 app.use(cors({
-    origin: "https://mernbookstorefrontend.vercel.app",
+    origin: process.env.CORS_ORIGIN,
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
 }))
