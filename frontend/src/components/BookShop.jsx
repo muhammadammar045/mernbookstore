@@ -15,7 +15,7 @@ function BookShop() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://mernbookstorebackend.vercel.app/api/v1/books/get-all-books?page=${page}`
+        `${envVars.backend_uri}/books/get-all-books?page=${page}`
       );
       const { results, meta } = response.data.data;
       setBooks(results);
@@ -32,7 +32,7 @@ function BookShop() {
   const handleDelete = async (bookId) => {
     try {
       const deletedBook = await axios.delete(
-        `https://mernbookstorebackend.vercel.app/api/v1/books/delete-book/${bookId}`
+        `${envVars.backend_uri}/books/delete-book/${bookId}`
       );
       if (deletedBook) {
         setBooks(books.filter((book) => book._id !== bookId));

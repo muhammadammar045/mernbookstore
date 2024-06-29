@@ -24,10 +24,10 @@ app.use(express.urlencoded({ limit: "16kb", extended: true }));
 
 app.use("/api/v1/books", booksRoutes);
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Internal Server Error');
-});
+// // Error handling middleware
+// app.use((err, req, res, next) => {
+//     console.error(err.stack);
+//     res.status(500).send('Internal Server Error');
+// });
 
 export default app;
