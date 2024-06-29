@@ -11,9 +11,9 @@ app.use(express.static("public"));
 
 // CORS Configuration
 app.use(cors({
-    origin: '*',
-    credentials: true,
+    origin: ['https://mernbookstorefrontend.vercel.app'],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    credentials: true,
 }));
 
 // Body parsing middleware
