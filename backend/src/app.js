@@ -21,8 +21,12 @@ app.use(express.urlencoded({
     extended: true
 }))
 
-
-app.use("/api/v1/books", booksRoutes)
+app.get('/api/v1/books/get-all-books', (req, res) => {
+    // Logic to fetch and return books data
+    const books = [{ title: 'Book 1' }, { title: 'Book 2' }];
+    res.json({ books });
+});
+// app.use("/api/v1/books", booksRoutes)
 
 
 export default app
